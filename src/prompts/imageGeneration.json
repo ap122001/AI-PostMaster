@@ -1,0 +1,8 @@
+{
+  "philosophy": {
+    "prompt": "Image Specifications:\n  - dimensions: 1080x1920\n  - orientation: vertical\n  - style: minimalist and vintage\n  - background: textured dark parchment (deep brown, charcoal, sepia) with soft vignette\n\nPortrait:\n  - subject: {author}\n  - style: vintage sketch or digital painting\n  - position: lower third or off-center\n  - visibility: clearly visible but dimmed (lower opacity or blending)\n\nText Overlay :\n - include_text: true,  - quote: \"{quote}\"\n  - author: - {author}\n  - hashtag: {hashtag} {emoji}\n  - font: Arial, 40px, white or beige, bold, center-aligned\n  - max lines: 2\n  - line spacing: sufficient for readability\n  - padding: generous whitespace around text block\n\nComposition:\n  - focus: text is primary visual element\n  - hierarchy: [quote, author, hashtag, portrait]\n  - portrait interference: none; text remains fully legible\n  - mood: sharp, thoughtful, and timeless\n  - design intent: final image must be ready to post without edits\n\nOutput Requirements:\n  - ready_for_posting: true\n  - platform: Instagram Reels\n  - no_manual_editing_needed: true"
+  },
+  "weather": {
+    "prompt": "how is weather?"
+  }
+}
