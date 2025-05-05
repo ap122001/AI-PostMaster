@@ -1,4 +1,6 @@
-{
+
+
+  {
     "philosophy": {
         "prompt": "Generate ONE random quote (max 2 lines) in the style of Machiavelli, Robert Greene, or Chanakya - pick one author randomly. Focus on ruthless truth about power, strategy, or human behavior relevant to modern life/relationships. Format: [Author Name]: [Quote] [Relevant hashtag] [Theme emoji]. Make it sharp, Instagram-ready, and blend timeless philosophy with today's challenges - sharp, shareable, and thought-provoking."
     },
@@ -7,3 +9,4 @@
         "report": "The current weather in {location} is {temperature}°C with {conditions}."
     }
 }
+  

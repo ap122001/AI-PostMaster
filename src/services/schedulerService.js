@@ -1,10 +1,10 @@
 const cron = require('node-cron');
 const { createClient } = require('redis');
 const { postToPlatform } = require('./postExecutor');
-const { redisUrl } = require('../config');
+const  config  = require('config');
 
 // Initialize Redis client
-const redis = createClient({ url: redisUrl });
+const redis = createClient({ url: config.redisUrl });
 redis.connect().catch(err => console.error('Redis connection error:', err));
 
 // Prefix for Redis keys storing job metadata

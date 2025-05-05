@@ -1,0 +1,13 @@
+{
+  "openai": {
+      "model": "gpt-4o-mini",
+      "temperature": 0.7,
+      "maxTokens": "10000",
+      "modelProvider": "openai",
+      "imageModel": "dall-e-3",
+      "imageQuality": "hd",
+      "imageSize": "1024x1792"
+    },
+    "redisUrl" : "redis://localhost:6379"
+}
+

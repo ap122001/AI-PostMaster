@@ -1,0 +1,12 @@
+[
+    {
+      "platform": "instagram",
+      "pageTheme": "philosophy",
+      "timeOfPost": ["11:00PM", "01:00AM", "02:00AM"]
+    },
+    {
+      "platform": "instagram",
+      "pageTheme": "healthyHabits",
+      "timeOfPost": ["11:05PM", "01:10AM", "08:00AM"]
+    }
+]
