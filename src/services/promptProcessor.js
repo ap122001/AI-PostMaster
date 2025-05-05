@@ -31,19 +31,19 @@ class PromptProcessor {
   static strategies = {
     philosophy: {
       extract: (text) => {
-        // Updated regex with unicode support and quote handling
+        // Updated regex to handle both bold and non-bold author formats
         const match = text.match(
-          /^([\p{L}\s']+):\s+"?((?:[^#"]|"|“|”)+)"?\s+(#\w+)\s+([^\s]+)/u
+          /^(?:\*\*)?([\p{L}\s']+)(?:\*\*)?:\s+["“](.+?)["”]\s+(#\w+)\s+([^\s]+)/u
         );
         
         if (!match) {
           logger.error('Failed to parse philosophy text:', { text });
-          throw new Error('Invalid philosophy text format');
+          throw new Error(`Invalid philosophy format. Expected: [Author]: "[Quote]" #hashtag emoji`);
         }
-
+  
         return {
           'author': match[1].trim(),
-          'quote': match[2].replace(/^"+|"+$/g, '').trim(), // Clean quotes
+          'quote': match[2].trim(), 
           'hashtag': match[3].trim(),
           'emoji': match[4].trim()
         };

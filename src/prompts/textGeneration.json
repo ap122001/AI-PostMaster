@@ -1,12 +1,8 @@
-
-
-  {
+{
     "philosophy": {
-        "prompt": "Generate ONE random quote (max 2 lines) in the style of Machiavelli, Robert Greene, or Chanakya - pick one author randomly. Focus on ruthless truth about power, strategy, or human behavior relevant to modern life/relationships. Format: [Author Name]: [Quote] [Relevant hashtag] [Theme emoji]. Make it sharp, Instagram-ready, and blend timeless philosophy with today's challenges - sharp, shareable, and thought-provoking."
+      "prompt": "Generate ONE random quote (max 2 lines) in the style of Machiavelli, Robert Greene, or Chanakya. Follow EXACT format:\n\"[Author]: [Quote in quotes] [Single hashtag] [1 emoji]\"\nExamples:\n- **Machiavelli**: \"In war, the moral is to the physical as three to one\" #PowerRatios ⚔️\n- Chanakya: \"A wise man should foresee danger before it strikes\" #StrategicVision 🎯\nFocus on: Power dynamics, career strategy, social manipulation. Keep quotes under 240 characters."
     },
     "weather": {
-        "ask_location": "Please share your location to get weather updates.",
-        "report": "The current weather in {location} is {temperature}°C with {conditions}."
+      "prompt": "Generate weather report in format: The current weather in {location} is {temp}°C with {conditions}."
     }
 }
-  
