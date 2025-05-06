@@ -1,6 +1,6 @@
 {
   "philosophy": {
-    "prompt": "A cat sitting on a windowsill"
+    "prompt": "Image Specifications:\n  - dimensions: 1024x1792\n  - orientation: vertical\n  - style: minimalist vintage\n  - background: textured dark parchment (deep brown, charcoal, sepia) with soft vignette\n\nPortrait:\n  - subject: {author}\n  - style: vintage sketch/digital painting\n  - position: bottom-right grid third (3x3 rule)\n  - visibility: dimmed (40% opacity)\n\nText Overlay:\n  - include_text: true\n  - quote: \"{quote}\"\n  - author: \"— {author}\"\n  - typography:\n      - QUOTE: Arial Bold 40px (beige #F5F5DC)\n      - AUTHOR: Arial Regular 12px (white #FFFFFF)\n      - STRICT FONT RATIO: Author text = 30% of quote size (40px → 12px)\n  - layout:\n      - GRID SYSTEM: 3x3 rule of thirds\n      - QUOTE POSITION: Top-center-left (occupies left 2/3 horizontally)\n      - AUTHOR POSITION: Directly below quote (4% vertical spacing)\n      - PORTRAIT ZONE: Confined to bottom-right 1/3 grid cell\n      - MINIMUM TEXT-PORTRAIT CLEARANCE: 20%\n  - requirements:\n      - TEXT PRIORITY: Quote > Author > Portrait\n      - NO SIZE EQUALITY: Author font must never match quote size\n      - LOCKED VERTICAL ALIGNMENT: Author centered under quote baseline\n\nOutput Requirements:\n  - platform: Instagram Reels\n  - automation: No manual edits\n  - text_safety: 150px margin buffer"
   },
   "weather": {
     "prompt": "Generate image of a storm"
