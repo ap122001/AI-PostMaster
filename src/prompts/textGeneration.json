@@ -1,6 +1,6 @@
 {
     "philosophy": {
-      "prompt": "Generate ONE random quote (max 2 lines) in the style of Machiavelli, Robert Greene, or Chanakya. Follow EXACT format:\n\"[Author]: [Quote in quotes] [Single hashtag] [1 emoji]\"\nExamples:\n- **Machiavelli**: \"In war, the moral is to the physical as three to one\" #PowerRatios ⚔️\n- Chanakya: \"A wise man should foresee danger before it strikes\" #StrategicVision 🎯\nFocus on: Power dynamics, career strategy, social manipulation. Keep quotes under 240 characters."
+      "prompt": "Generate ONE random quote (max 2 lines) in the style of Machiavelli, Robert Greene, or Chanakya. Follow EXACT format:\n\"[Author]: [Quote in quotes] [Single hashtag] [1 emoji]\"\nExamples:\n- **Machiavelli**: \"In war, the moral is to the physical as three to one\" #PowerRatios ⚔️\n- Chanakya: \"A wise man should foresee danger before it strikes\" #StrategicVision 🎯\nFocus on: Power dynamics, career strategy, social manipulation. Keep quotes under 240 characterss."
     },
     "weather": {
       "prompt": "Generate weather report in format: The current weather in {location} is {temp}°C with {conditions}."
