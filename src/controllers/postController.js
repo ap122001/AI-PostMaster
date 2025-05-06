@@ -57,7 +57,7 @@ exports.createPost = async (req, res, next) => {
     const imageUrl = await aiService.generateImage(processedImagePrompt);
 
     // 4. Post to platform
-    // await postToPlatform(platform, { content, imageUrl });
+    await postToPlatform(platform, { content, imageUrl });
     
     res.status(201).json({
       status: 'posted',

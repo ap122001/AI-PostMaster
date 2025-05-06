@@ -48,7 +48,7 @@ exports.generateImage = async (prompt) => {
       const response = await openai.images.generate({
           model: config.get('openai.imageModel'), // e.g., "dall-e-3"
           prompt: prompt,
-          size: "1080x1920", // Instagram portrait
+          size: "1024x1792", // Instagram portrait
           n: 1,
           quality: "standard",
           // style: "natural", // or "vivid"
