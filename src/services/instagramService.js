@@ -5,7 +5,7 @@ const config = require('config');
 const  IG_USER_ID = config.instagram.ig_user_id;
 const  INSTAGRAM_ACCESS_TOKEN = config.instagram.access_token;
 const API_VERSION = config.instagram.api_version;
-const BASE_URL = `https://graph.facebook.com/${API_VERSION}/${IG_USER_ID}`;
+const BASE_URL = `https://graph.instagram.com/${API_VERSION}/${IG_USER_ID}`;
 
 const DEFAULT_HEADERS = {
   Authorization: `Bearer ${INSTAGRAM_ACCESS_TOKEN}`,
@@ -14,6 +14,7 @@ const DEFAULT_HEADERS = {
 
 async function handleInstagramAPI(endpoint, data, method = 'POST') {
   try {
+    logger.info('Inside handleInstagramAPI function, Creating container, wait ⏳', data);
     const response = await axios({
       method,
       url: `${BASE_URL}/${endpoint}`,
@@ -37,8 +38,10 @@ async function handleInstagramAPI(endpoint, data, method = 'POST') {
 
 async function checkContainerStatus(containerId) {
   try {
+    containerId = String(containerId).replace(/\D/g, '');
+    logger.info( `Inside checkContainerStatus, checking status⏳, statusCHeckURl : https://graph.facebook.com/${API_VERSION}/${containerId}?fields=status_code,status&access_token=${INSTAGRAM_ACCESS_TOKEN}`);
     const response = await axios.get(
-      `${BASE_URL}/media?fields=status_code,status&access_token=${INSTAGRAM_ACCESS_TOKEN}`,
+      `https://graph.facebook.com/${API_VERSION}/${containerId}?fields=status_code,status&access_token=${INSTAGRAM_ACCESS_TOKEN}`,
       { params: { container_id: containerId } }
     );
 
@@ -56,6 +59,8 @@ async function checkContainerStatus(containerId) {
 }
 
 async function waitForContainerReady(containerId, retries = 5, delay = 2000) {
+  logger.info('Inside waitForContainairReady');
+
   for (let attempt = 1; attempt <= retries; attempt++) {
     const { status } = await checkContainerStatus(containerId);
     
@@ -68,6 +73,7 @@ async function waitForContainerReady(containerId, retries = 5, delay = 2000) {
 }
 
 async function createMediaContainer(params) {
+  logger.info('🚩Inside createMediaContainer');
   const requiredFields = ['caption', 'image_url', 'media_type'];
   const missing = requiredFields.filter(field => !params[field]);
   
@@ -85,7 +91,10 @@ async function createMediaContainer(params) {
 }
 
 async function createSingleImage(content) {
-  const { imageUrl, caption } = content;
+  logger.info('Inside createSingleImage, content : ', content);
+  const { imageUrl, caption = "Hurray!!" } = content;
+
+  logger.info('---->',{imageUrl, caption});
   
   if (!imageUrl.startsWith('https://')) {
     throw new Error('Image URL must use HTTPS protocol');
@@ -97,6 +106,7 @@ async function createSingleImage(content) {
     media_type: 'IMAGE'
   });
 
+  logger.info('Recieved containerId now calling , waitForContainerReady function');
   await waitForContainerReady(containerId);
   return containerId;
 }
@@ -146,10 +156,14 @@ module.exports = {
       let containerId;
       
       if (content.carouselItems) {
+        logger.info('Post is carousel type..😉');
         containerId = await createCarouselContainer(content.carouselItems, content.caption);
       } else {
+        logger.info('Post is single content..😉');
         containerId = await createSingleImage(content);
       }
+
+      logger.info('Publishing Post ⏳');
 
       const publishResult = await publishContainer(containerId);
       return {

@@ -53,6 +53,7 @@ async function postToPlatform(platform, content) {
 
 // Instagram-specific handler with additional validation
 async function handleInstagramPost(content) {
+
   if (!content.imageUrl && !content.carouselItems) {
     throw new Error('Instagram posts require either imageUrl or carouselItems');
   }

@@ -44,17 +44,30 @@ exports.generateText = async (prompt) => {
 exports.generateImage = async (prompt) => {
   try {
       logger.info('🎨 Starting AI image generation');
-      
-      const response = await openai.images.generate({
-          model: config.get('openai.imageModel'), // e.g., "dall-e-3"
-          prompt: prompt,
-          size: "1024x1792", // Instagram portrait
-          n: 1,
-          quality: "standard",
-          // style: "natural", // or "vivid"
-      });
 
-      const imageUrl = response.data[0]?.url;
+    //   const response = await openai.images.generate({
+    //     model: config.get('openai.imageModel'), // e.g., "dall-e-3"
+    //     prompt: prompt,
+    //     size: "1024x1792", // Instagram portrait
+    //     quality: "standard",
+    //     style: "natural", // or "vivid"
+    // });
+
+    const response = await fetch('https://api.openai.com/v1/images/generations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${config.get('openai.apiKey')}`
+        },
+        body: JSON.stringify({
+          model: config.get('openai.imageModel'),
+          prompt: prompt,
+          size: "1024x1792",
+          quality: "standard"
+        })
+      });
+      
+      const imageUrl = response && response.data ? response.data[0]?.url : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Example.jpg/800px-Example.jpg";
       
       if (!imageUrl) {
           throw new Error('Empty response from OpenAI image API');

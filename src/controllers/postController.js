@@ -1,7 +1,7 @@
 const aiService = require('../services/aiService');
 const scheduler = require('../services/schedulerService');
 const logger = require('../utils/logger');
-const postToPlatform = require('../services/postExecutor');
+const { postToPlatform } = require('../services/postExecutor');
 const textPrompts = require('../prompts/textGeneration.json');
 const imagePrompts = require('../prompts/imageGeneration.json');
 const PromptProcessor = require('../services/promptProcessor'); // Added import
